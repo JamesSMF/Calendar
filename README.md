@@ -212,4 +212,18 @@ Release Date: March 22nd, 2019
 
 
 
+===========================================
+Release Date: April 4th, 2019
+Developer: James Li
+Version 3.4.1
+===========================================
+
+1. Optimized the performance of natural-language comprehension.
+   (is still under development)
+2. Fixed bugs in map function.
+
+
+
+
+
 
