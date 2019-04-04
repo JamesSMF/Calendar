@@ -1,0 +1,5 @@
+Big plans:  (might need restructure)
+1. undo operation
+2. event history
+3. two events with the same name (solved)
+4. smart date/time entry
