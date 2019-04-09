@@ -362,8 +362,11 @@ while True:
    elif charArray[0]=='map':
       # if the time is like 3:00, it will be converted to 15:00
       charArray[-1] = re.sub("[^0-9]", "", charArray[-1])
-      if len(charArray[-1])==3 and int(charArray[-1][0])<6:
-         charArray[-1] = str(int(charArray[-1])+1200)
+      if len(charArray[-1])==3:
+         if int(charArray[-1][0])<6:
+            charArray[-1] = str(int(charArray[-1])+1200)
+         else:
+            charArray[-1] = str('0' + charArray[-1])
 
       if charArray[-2]=="today":
          Date = datetime.today().strftime('%Y%m%d')
