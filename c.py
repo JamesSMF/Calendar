@@ -443,11 +443,9 @@ while True:
      # end if
    else:      # None of the previous patterns are matched
      if re.search("today's date", ch) or re.search("date of today", ch) or re.search("date today", ch):
-       print("Today is " + datetime.today().strftime('%Y-%m-%d') + ".")
+        print("Today is " + datetime.today().strftime('%Y-%m-%d') + ".")
      elif re.search("Fuck", ch) or re.search("Bustard", ch) or re.search("asshole", ch) or re.search("shit", ch) or re.search("whore", ch):
-       print("No bad words, bitch.")
-     elif re.search("agenda", ch) or re.search('schedule', ch) or re.search("calendar", ch) or re.search("my plan", ch) or re.search("My plan", ch) or re.search("Schedule", ch) or re.search("Agenda", ch) or re.search("Calendar", ch):
-       listEvents()
+        print("No bad words, bitch.")
      elif re.search("I will", ch) or re.search("I want to", ch) or re.search("I plan to", ch) or re.search("I intend to", ch) or re.search("to my plan", ch) or re.search("to my schedule",ch):
        ch = re.sub("to my schedule", "", ch)
        ch = re.sub("I want to", "", ch)
@@ -499,10 +497,37 @@ while True:
          ch = re.sub("on Wednesday","",ch)
          ch = re.sub("On Wednesday,","",ch)
          Date = next_weekday(datetime.today(), 2).strftime('%Y%m%d')
+       elif re.search("Thursday",ch):
+         ch = re.sub("on next Thursday at","",ch)
+         ch = re.sub("On next Thursday,","",ch)
+         ch = re.sub("on next Thursday","",ch)
+         ch = re.sub("On this Thursday,", "",ch)
+         ch = re.sub("on this Thursday at", "",ch)
+         ch = re.sub("on this Thursday", "",ch)
+         ch = re.sub("on Thursday at","",ch)
+         ch = re.sub("On Thursday at","",ch)
+         ch = re.sub("on Thursday","",ch)
+         ch = re.sub("On Thursday,","",ch)
+         Date = next_weekday(datetime.today(), 3).strftime('%Y%m%d')
+       elif re.search("Friday",ch):
+         ch = re.sub("on next Friday at","",ch)
+         ch = re.sub("On next Friday,","",ch)
+         ch = re.sub("on next Friday","",ch)
+         ch = re.sub("On this Friday,", "",ch)
+         ch = re.sub("on this Friday at", "",ch)
+         ch = re.sub("on this Friday", "",ch)
+         ch = re.sub("on Friday at","",ch)
+         ch = re.sub("On Friday at","",ch)
+         ch = re.sub("on Friday","",ch)
+         ch = re.sub("On Friday,","",ch)
+         Date = next_weekday(datetime.today(), 4).strftime('%Y%m%d')
        elif re.search("Saturday",ch):
          ch = re.sub("on next Saturday at","",ch)
          ch = re.sub("On next Saturday,","",ch)
          ch = re.sub("on next Saturday","",ch)
+         ch = re.sub("On this Saturday,", "",ch)
+         ch = re.sub("on this Saturday at", "",ch)
+         ch = re.sub("on this Saturday", "",ch)
          ch = re.sub("on Saturday at","",ch)
          ch = re.sub("On Saturday at","",ch)
          ch = re.sub("on Saturday","",ch)
@@ -512,6 +537,9 @@ while True:
          ch = re.sub("on next Sunday at","",ch)
          ch = re.sub("On next Sunday,","",ch)
          ch = re.sub("on next Sunday","",ch)
+         ch = re.sub("On this Sunday,", "",ch)
+         ch = re.sub("on this Sunday at", "",ch)
+         ch = re.sub("on this Sunday", "",ch)
          ch = re.sub("on Sunday at","",ch)
          ch = re.sub("On Sunday at","",ch)
          ch = re.sub("on Sunday","",ch)
@@ -570,6 +598,8 @@ while True:
        print('')
        # end if
 
+     elif re.search("agenda", ch) or re.search('schedule', ch) or re.search("calendar", ch) or re.search("my plan", ch) or re.search("My plan", ch) or re.search("Schedule", ch) or re.search("Agenda", ch) or re.search("Calendar", ch):
+       listEvents()
      elif charArray[0]=='I':
        ch = re.sub("\.", "", ch)
        ch += ", too."
