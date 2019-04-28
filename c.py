@@ -58,7 +58,7 @@ def longestName(theDic):
 # This function lists all events out
 def listEvents():
    # save the process first ----------------------
-   with open("Calendar/Database.db", "w") as f:   # rewrite Calendar/Database.db
+   with open("Calendar/DataBase.db", "w") as f:   # rewrite Calendar/DataBase.db
       for key in assignment:
          f.write(key + " " + bytes(assignment[key]) + "\n")
      # end for
@@ -138,8 +138,8 @@ def listEvents():
 # end of list function
 
 assignment = dict()   # restructured: map from due dates to assignment
-if os.stat("Calendar/Database.db").st_size != 0:
-   inputFile = open("Calendar/Database.db", "r")
+if os.stat("Calendar/DataBase.db").st_size != 0:
+   inputFile = open("Calendar/DataBase.db", "r")
 
    for line in inputFile:
       newString = line.split()     # split lines in database by space
@@ -193,7 +193,7 @@ print bcolors.HEADER +"Thanks for using this app. Have a nice one :)" + bcolors.
 print bcolors.HEADER + "----------------------------------------------" + bcolors.ENDC
 
 while True:
-   if os.stat("Calendar/Database.db").st_size != 0:
+   if os.stat("Calendar/DataBase.db").st_size != 0:
      assignment = OrderedDict(sorted(assignment.items(), key=lambda x: int(x[0])))
    print bcolors.PERFECTBLUE + "Commands: ls, map, rm, i, o, q, t, c, r, d" + bcolors.ENDC
    print bcolors.PERFECTBLUE + "Detailed instructions are in the README file." + bcolors.ENDC
@@ -203,11 +203,11 @@ while True:
 
    if len(charArray)==0:
      # sort the dict
-     if os.stat("Calendar/Database.db").st_size != 0:
+     if os.stat("Calendar/DataBase.db").st_size != 0:
        assignment = OrderedDict(sorted(assignment.items(), key=lambda x: int(x[0])))
      continue
    elif charArray[0] == 'q' or charArray[0] == 'Q' or charArray[0] == "exit" or charArray[0] == "quit" or charArray[0] == "ZZ":
-     with open("Calendar/Database.db", "w") as f:   # rewrite Calendar/Database.db
+     with open("Calendar/DataBase.db", "w") as f:   # rewrite Calendar/DataBase.db
         # key is the date
        for key in assignment:
           f.write(key + " " + bytes(assignment[key]) + "\n")
@@ -534,7 +534,7 @@ while True:
        continue
 
     # time conflict check
-     if os.stat("Calendar/Database.db").st_size != 0:
+     if os.stat("Calendar/DataBase.db").st_size != 0:
         flag = True
         for datE in assignment:
            targetTime = datetime.strptime(datE, "%Y%m%d%H%M") # datetime type
@@ -715,7 +715,7 @@ while True:
 
        # conflict check
        flag = True
-       if os.stat("Calendar/Database.db").st_size != 0:
+       if os.stat("Calendar/DataBase.db").st_size != 0:
           for datE in assignment:
              targetTime = datetime.strptime(datE, "%Y%m%d%H%M") # datetime type
              compTime = datetime.strptime(Date, "%Y%m%d%H%M")   # datetime type
@@ -770,7 +770,7 @@ while True:
    # end if-else
 # end while
 
-if os.stat("Calendar/Database.db").st_size != 0:    # if the database is not empty
+if os.stat("Calendar/DataBase.db").st_size != 0:    # if the database is not empty
     try:
        inputFile.close()
     except:
