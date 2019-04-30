@@ -494,7 +494,6 @@ while True:
 
 
 
-     print(charArray[-1])
      if len(charArray[-1])!=4:
          print("Oops, there is something wrong with \"Time\". Please enter a valid time.")
 
