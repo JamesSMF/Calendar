@@ -1,4 +1,4 @@
-# DataBase Format: <datetime> + <event>
+# DataBdef next_weekday(d, weekday):ase Format: <datetime> + <event>
 
 from collections import OrderedDict
 from datetime import datetime, date, time, timedelta
@@ -140,6 +140,7 @@ def listEvents():
 assignment = dict()   # restructured: map from due dates to assignment
 if os.stat("Calendar/DataBase.db").st_size != 0:
    inputFile = open("Calendar/DataBase.db", "r")
+
 
    for line in inputFile:
       newString = line.split()     # split lines in database by space
