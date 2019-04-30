@@ -454,6 +454,13 @@ while True:
          charArray[-1] = str(int(charArray[-1])+1200)
        else:
          charArray[-1] = str('0' + charArray[-1])
+
+
+
+
+######### This part still has some problems ######
+
+
      elif charArray[-1]=="am" or charArray[-1]=="AM" or charArray[-1]=="a.m." or charArray[-1]=="morning":
          ch = re.sub("in the morning","", ch)
          ch = re.sub("AM","",ch)
@@ -481,6 +488,11 @@ while True:
                  charArray[-1] = str(int(charArray[-1]) * 100)
 
              charArray[-1] = str(int(charArray[-1])+1200)
+
+
+##################################################
+
+
 
      print(charArray[-1])
      if len(charArray[-1])!=4:
