@@ -455,6 +455,8 @@ while True:
        else:
          charArray[-1] = str('0' + charArray[-1])
 
+     if len(charArray[-1])!=4:
+       print("Oops, there is something wrong with \"Time\". Please enter a valid time.")
 
 
 
@@ -494,8 +496,6 @@ while True:
 
 
 
-     if len(charArray[-1])!=4:
-       print("Oops, there is something wrong with \"Time\". Please enter a valid time.")
 
      if charArray[-2]=="today" or charArray[-2]=="tonight":
        Date = datetime.today().strftime('%Y%m%d')
