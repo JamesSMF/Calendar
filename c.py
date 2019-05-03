@@ -459,7 +459,7 @@ while True:
 
 
 ######### This part still has some problems ######
-
+"""
 
      elif charArray[-1]=="am" or charArray[-1]=="AM" or charArray[-1]=="a.m." or charArray[-1]=="morning":
          ch = re.sub("in the morning","", ch)
@@ -489,7 +489,7 @@ while True:
 
              charArray[-1] = str(int(charArray[-1])+1200)
 
-
+"""
 ##################################################
 
 
