@@ -459,44 +459,6 @@ while True:
        print("Oops, there is something wrong with \"Time\". Please enter a valid time.")
 
 
-
-######### This part still has some problems ######
-"""
-
-     elif charArray[-1]=="am" or charArray[-1]=="AM" or charArray[-1]=="a.m." or charArray[-1]=="morning":
-         ch = re.sub("in the morning","", ch)
-         ch = re.sub("AM","",ch)
-         ch = re.sub("a.m.","", ch)
-         ch = re.sub("am","",ch)
-         charArray[-1] = re.findall("[0-9]", ch)
-         if len(charArray[-1]==1):
-             charArray[-1] = str(int(charArray[-1]) * 100)
-             charArray[-1] = ["0"] + charArray[-1]
-         elif len(charArray[-1]==2):
-             charArray[-1] = str(int(charArray[-1]) * 100)
-     elif charArray[-1]=="pm" or charArray[-1]=="PM" or charArray[-1]=="p.m." or charArray[-1]=="afternoon" or charArray[-1]=="evening" or charArray[-1]=="tonight":
-         ch = re.sub("in the evening","",ch)
-         ch = re.sub("in the afternoon","",ch)
-         ch = re.sub("tonight", "",ch)
-         ch = re.sub("PM", "",ch)
-         ch = re.sub("pm","",ch)
-         ch = re.sub("p.m.","",ch)
-         charArray[-1] = re.findall("[0-9]", ch)
-         if len(charArray[-1])<4:
-             if len(charArray[-1])==1:
-                 charArray[-1] = str(int(charArray[-1]) * 100)
-                 charArray[-1] = ["0"] + charArray[-1]
-             elif len(charArray[-1])==2:
-                 charArray[-1] = str(int(charArray[-1]) * 100)
-
-             charArray[-1] = str(int(charArray[-1])+1200)
-
-"""
-##################################################
-
-
-
-
      if charArray[-2]=="today" or charArray[-2]=="tonight":
        Date = datetime.today().strftime('%Y%m%d')
        Date = Date + str(charArray[-1])
