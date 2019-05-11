@@ -471,6 +471,7 @@ while True:
        Date = nextDate + str(charArray[-1])
      elif charArray[-2]=="Mon" or charArray[2]=="Monday":
        # String nextDate;
+       print "Hello World"
        nextDate = next_weekday(datetime.today(), 0).strftime('%Y%m%d')
        Date = nextDate + str(charArray[-1])
      elif charArray[-2]=="Tues" or charArray[2]=="Tuesday":
