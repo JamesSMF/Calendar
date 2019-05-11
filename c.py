@@ -465,32 +465,31 @@ while True:
      elif charArray[-2]=='tomorrow':
        Date = str(date.today() + timedelta(days=1))
        Date = Date + str(charArray[-1])
-     elif charArray[-2]=="Sun" or charArray[2]=="Sunday":
+     elif charArray[-2]=="Sun" or charArray[-2]=="Sunday":
        # String nextDate;
        nextDate = next_weekday(datetime.today(), 6).strftime('%Y%m%d')
        Date = nextDate + str(charArray[-1])
-     elif charArray[-2]=="Mon" or charArray[2]=="Monday":
+     elif charArray[-2]=="Mon" or charArray[-2]=="Monday":
        # String nextDate;
-       print "Hello World"
        nextDate = next_weekday(datetime.today(), 0).strftime('%Y%m%d')
        Date = nextDate + str(charArray[-1])
-     elif charArray[-2]=="Tues" or charArray[2]=="Tuesday":
+     elif charArray[-2]=="Tues" or charArray[-2]=="Tuesday":
        # String nextDate;
        nextDate = next_weekday(datetime.today(), 1).strftime('%Y%m%d')
        Date = nextDate + str(charArray[-1])
-     elif charArray[-2]=="Wed" or charArray[2]=="Wednesday":
+     elif charArray[-2]=="Wed" or charArray[-2]=="Wednesday":
        # String nextDate;
        nextDate = next_weekday(datetime.today(), 2).strftime('%Y%m%d')
        Date = nextDate + str(charArray[-1])
-     elif charArray[-2]=="Thur" or charArray[2]=="Thurs" or charArray[2]=="Thursday":
+     elif charArray[-2]=="Thur" or charArray[-2]=="Thurs" or charArray[2]=="Thursday":
        # String nextDate;
        nextDate = next_weekday(datetime.today(), 3).strftime('%Y%m%d')
        Date = nextDate + str(charArray[-1])
-     elif charArray[-2]=="Fri" or charArray[2]=="Friday":
+     elif charArray[-2]=="Fri" or charArray[-2]=="Friday":
        # String nextDate;
        nextDate = next_weekday(datetime.today(), 4).strftime('%Y%m%d')
        Date = nextDate + str(charArray[-1])
-     elif charArray[-2]=="Sat" or charArray=='Saturday':
+     elif charArray[-2]=="Sat" or charArray[-2]=='Saturday':
        # String nextDate;
        nextDate = next_weekday(datetime.today(), 5).strftime('%Y%m%d')
        Date = nextDate + str(charArray[-1])
