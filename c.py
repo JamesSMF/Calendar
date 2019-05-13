@@ -583,7 +583,7 @@ while True:
          ch = re.sub("on next Tuesday at","",ch)
          ch = re.sub("On next Tuesday,","",ch)
          ch = re.sub("on next Tuesday","",ch)
-         ch = re.sub("On this Tuesday," "", ch)
+         ch = re.sub("On this Tuesday,", "", ch)
          ch = re.sub("on this Tuesday at","",ch)
          ch = re.sub("on this Tuesday", "", ch)
          ch = re.sub("on Tuesday at","",ch)
