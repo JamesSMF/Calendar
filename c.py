@@ -141,7 +141,6 @@ assignment = dict()   # restructured: map from due dates to assignment
 if os.stat("Calendar/DataBase.db").st_size != 0:
    inputFile = open("Calendar/DataBase.db", "r")
 
-
    for line in inputFile:
       newString = line.split()     # split lines in database by space
       the_name_of_assignment = ' '.join(newString[1:])    # newString[0] is date and time
