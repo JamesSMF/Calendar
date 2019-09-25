@@ -306,7 +306,7 @@ while True:
 
                nextWeek.write(listOfInput[0] + " " + listOfInput[1] + " " + listOfInput[2])
    elif charArray[0] == 'c' or charArray[0] == 'C':
-     name = raw_input("   1. Enter assignment name\n")
+     name = raw_input("   1. Enter task name\n")
      if name in assignment.values():         # check if the assignment is in the dict
        print dateFormat(assignment.keys()[assignment.values().index(name)])     # print the date and time
      else:                      # not found
