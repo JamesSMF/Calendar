@@ -60,7 +60,7 @@ def longestName(theDic):
 # This function lists all events out
 def listEvents():
    # save the process first ----------------------
-   with open(PATH + "/DataBase.db", "w") as f:   # rewrite Calendar/DataBase.db
+   with open("Calendar/DataBase.db", "w") as f:   # rewrite Calendar/DataBase.db
       for key in assignment:
          f.write(key + " " + bytes(assignment[key]) + "\n")
      # end for
@@ -111,7 +111,7 @@ def listEvents():
        difference = int(delta.days)
 
        # create a set of event names in weekly calendar
-       nextWeek = open(PATH + "/Weekly.db", "r")
+       nextWeek = open("Calendar/Weekly.db", "r")
        listWeek = set()
        for ddd in nextWeek:
            listWeek.add(ddd.split()[2])
@@ -140,8 +140,8 @@ def listEvents():
 # end of list function
 
 assignment = dict()   # restructured: map from due dates to assignment
-if os.stat(PATH + "/DataBase.db").st_size != 0:
-   inputFile = open(PATH + "/DataBase.db", "r")
+if os.stat("Calendar/DataBase.db").st_size != 0:
+   inputFile = open("Calendar/DataBase.db", "r")
 
    for line in inputFile:
       newString = line.split()     # split lines in database by space
@@ -155,8 +155,8 @@ tDate = datetime.today()
 todayDate = int(tDate.strftime('%Y%m%d'))
 
 # push next week's agenda in
-if os.stat(PATH + "/Weekly.db").st_size != 0:
-   nextWeek = open(PATH + "/Weekly.db", "r")
+if os.stat("Calendar/Weekly.db").st_size != 0:
+   nextWeek = open("Calendar/Weekly.db", "r")
    for line in nextWeek:
       newString = line.split()
       # get the the date of the last class in next week
@@ -195,7 +195,7 @@ print bcolors.HEADER +"Thanks for using this app. Have a nice one :)" + bcolors.
 print bcolors.HEADER + "----------------------------------------------" + bcolors.ENDC
 
 while True:
-   if os.stat(PATH + "/DataBase.db").st_size != 0:
+   if os.stat("Calendar/DataBase.db").st_size != 0:
      assignment = OrderedDict(sorted(assignment.items(), key=lambda x: int(x[0])))
    print bcolors.PERFECTBLUE + "Commands: ls, map, rm, i, o, q, t, c, r, d" + bcolors.ENDC
    print bcolors.PERFECTBLUE + "Detailed instructions are in the README file." + bcolors.ENDC
@@ -205,11 +205,11 @@ while True:
 
    if len(charArray)==0:
      # sort the dict
-     if os.stat(PATH + "/DataBase.db").st_size != 0:
+     if os.stat("Calendar/DataBase.db").st_size != 0:
        assignment = OrderedDict(sorted(assignment.items(), key=lambda x: int(x[0])))
      continue
    elif charArray[0] == 'q' or charArray[0] == 'Q' or charArray[0] == "exit" or charArray[0] == "quit" or charArray[0] == "ZZ":
-     with open(PATH + "/DataBase.db", "w") as f:   # rewrite Calendar/DataBase.db
+     with open("Calendar/DataBase.db", "w") as f:   # rewrite Calendar/DataBase.db
         # key is the date
        for key in assignment:
           f.write(key + " " + bytes(assignment[key]) + "\n")
@@ -244,7 +244,7 @@ while True:
        print(tobeDeleted + " not found")
      # end if-else
    elif charArray[0]=='rm' or charArray[0]=='delete':
-     nextWeek = open(PATH + "/Weekly.db", "r")
+     nextWeek = open("Calendar/Weekly.db", "r")
      listWeek = set()
      for ddd in nextWeek:
         listWeek.add(ddd.split()[2])
@@ -265,7 +265,7 @@ while True:
        print("Please enter your weekly schedule in the format weekday (e.g Monday)  time (e.g. 13:00)  eventName")
        print("End input with a \"q\"")
 
-       with open(PATH + "/Weekly.db", "w") as nextWeek:
+       with open("Calendar/Weekly.db", "w") as nextWeek:
            while True:
                newInput = raw_input()
                if newInput=="q" or newInput=="Q" or newInput=="exit" or newInput=="quit":
@@ -419,7 +419,7 @@ while True:
          difference = int(delta.days)
 
          # create a set of event names in weekly calendar
-         nextWeek = open(PATH + "/Weekly.db", "r")
+         nextWeek = open("Calendar/Weekly.db", "r")
          listWeek = set()
          for ddd in nextWeek:
             listWeek.add(ddd.split()[2])
@@ -509,7 +509,7 @@ while True:
        continue
 
     # time conflict check
-     if os.stat(PATH + "/DataBase.db").st_size != 0:
+     if os.stat("Calendar/DataBase.db").st_size != 0:
         flag = True
         for datE in assignment:
            targetTime = datetime.strptime(datE, "%Y%m%d%H%M") # datetime type
@@ -690,7 +690,7 @@ while True:
 
        # conflict check
        flag = True
-       if os.stat(PATH + "/DataBase.db").st_size != 0:
+       if os.stat("Calendar/DataBase.db").st_size != 0:
           for datE in assignment:
              targetTime = datetime.strptime(datE, "%Y%m%d%H%M") # datetime type
              compTime = datetime.strptime(Date, "%Y%m%d%H%M")   # datetime type
@@ -745,12 +745,12 @@ while True:
    # end if-else
 # end while
 
-if os.stat(PATH + "/DataBase.db").st_size != 0:    # if the database is not empty
+if os.stat("Calendar/DataBase.db").st_size != 0:    # if the database is not empty
     try:
        inputFile.close()
     except:
        a = 1  # do nothing instead
-if os.stat(PATH + "/Weekly.db").st_size != 0:    # if the weekly file was originally not empty
+if os.stat("Calendar/Weekly.db").st_size != 0:    # if the weekly file was originally not empty
     nextWeek.close()
 
 
