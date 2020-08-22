@@ -269,45 +269,45 @@ while True:
       with open("Calendar/Weekly.db", "w") as nextWeek:
          while True:
             newInput = raw_input()
-               if newInput=="q" or newInput=="Q" or newInput=="exit" or newInput=="quit":
-                  break
-               splitedInput = newInput.split()
-               listOfInput = list()
-               if splitedInput[0] == "Mon" or splitedInput[0] == "Monday":
-                  listOfInput.append("0")
-               elif splitedInput[0] == "Tues" or splitedInput[0] == "Tuesday":
-                  listOfInput.append("1")
-               elif splitedInput[0] == "Wed" or splitedInput[0] == "Wednesday":
-                  listOfInput.append("2")
-               elif splitedInput[0] == "Thur" or splitedInput[0] == "Thursday":
-                  listOfInput.append("3")
-               elif splitedInput[0] == "Fri" or splitedInput[0] == "Friday":
-                  listOfInput.append("4")
-               elif splitedInput[0] == "Sat" or splitedInput[0] == "Saturday":
-                  listOfInput.append("5")
-               elif splitedInput[0] == "Sun" or splitedInput[0] == "Sunday":
-                  listOfInput.append("6")
+            if newInput=="q" or newInput=="Q" or newInput=="exit" or newInput=="quit":
+               break
+            splitedInput = newInput.split()
+            listOfInput = list()
+            if splitedInput[0] == "Mon" or splitedInput[0] == "Monday":
+               listOfInput.append("0")
+            elif splitedInput[0] == "Tues" or splitedInput[0] == "Tuesday":
+               listOfInput.append("1")
+            elif splitedInput[0] == "Wed" or splitedInput[0] == "Wednesday":
+               listOfInput.append("2")
+            elif splitedInput[0] == "Thur" or splitedInput[0] == "Thursday":
+               listOfInput.append("3")
+            elif splitedInput[0] == "Fri" or splitedInput[0] == "Friday":
+               listOfInput.append("4")
+            elif splitedInput[0] == "Sat" or splitedInput[0] == "Saturday":
+               listOfInput.append("5")
+            elif splitedInput[0] == "Sun" or splitedInput[0] == "Sunday":
+               listOfInput.append("6")
+            else:
+               print("Please enter a valid weekday")
+               continue
+
+            reModTime = re.sub("[^0-9]", "", splitedInput[1])
+            if len(reModTime)<4:
+               if int(reModTime)>=0 and int(reModTime)<1000:
+                  ["0"] + reModTime
                else:
-                  print("Please enter a valid weekday")
+                  print("Please enter a valid time")
                   continue
-
-               reModTime = re.sub("[^0-9]", "", splitedInput[1])
-               if len(reModTime)<4:
-                  if int(reModTime)>=0 and int(reModTime)<1000:
-                     ["0"] + reModTime
-                  else:
-                     print("Please enter a valid time")
-                     continue
+            else:
+               if int(reModTime)<2400:
+                  listOfInput.append(reModTime)
                else:
-                  if int(reModTime)<2400:
-                     listOfInput.append(reModTime)
-                  else:
-                     print("Please enter a valid time")
+                  print("Please enter a valid time")
 
-               for i in range(2,len(splitedInput)):
-                  listOfInput.append(splitedInput[i])
+            for i in range(2,len(splitedInput)):
+               listOfInput.append(splitedInput[i])
 
-               nextWeek.write(listOfInput[0] + " " + listOfInput[1] + " " + listOfInput[2])
+            nextWeek.write(listOfInput[0] + " " + listOfInput[1] + " " + listOfInput[2])
    elif charArray[0] == 'c' or charArray[0] == 'C':
       name = raw_input("   1. Enter task name\n")
       if name in assignment.values():         # check if the assignment is in the dict
