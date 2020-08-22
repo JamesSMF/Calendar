@@ -675,7 +675,7 @@ while True:
             ch = re.sub("in the evening", "", ch)
             exactTime = str(int(exactTime) + 1200)
          elif len(exactTime)==3 and int(exactTime)>0:
-            exactTime = ["0"] + exactTime
+            exactTime = "0" + exactTime
          Date = Date + str(exactTime)
          Date = re.sub("[^0-9]", "", Date)
          if len(Date)==4:
